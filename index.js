@@ -1,5 +1,5 @@
 const express = require('express');
-const ConnectionFn = require('./Connection/Connection.js');
+const ConnectionFn = require('./config/db');
 const blogrouter = require('./Controllers/blogController');
 const { userroute } = require('./Controllers/userController');
 

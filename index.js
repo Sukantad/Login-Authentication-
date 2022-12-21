@@ -20,25 +20,26 @@ const obj=[
     
 ]
 app.use(express.json());
+const PORT = process.env.PORT || 3050
 
 app.use("/user",userroute);
 app.use("/blogs",blogrouter);
 app.get('/about', (req,res)=>{
-    
     try {
         res.send(obj);
     } catch (error) {
         res.send(error);
     }
 })
+
 app.get('*', (req, res)=>{
     res.send("Not found");
 })
 
-app.listen(3050, () => {
+app.listen(PORT, () => {
     try {
         Connection();
-    console.log("listening 3050");
+    console.log("listening PORT");
     } catch (error) {
         console.log("error");
     }

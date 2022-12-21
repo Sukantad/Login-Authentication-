@@ -1,5 +1,5 @@
 const express = require('express');
-const connect = require('./connection/connection');
+const Connection = require('./connection/connection');
 const blogrouter = require('./Controllers/blogController');
 const { userroute } = require('./Controllers/userController');
 
@@ -37,8 +37,8 @@ app.get('*', (req, res)=>{
 
 app.listen(3050, () => {
     try {
-        connect();
-        console.log("listening 3050");
+        Connection();
+    console.log("listening 3050");
     } catch (error) {
         console.log("error");
     }

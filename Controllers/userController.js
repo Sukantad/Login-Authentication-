@@ -40,7 +40,7 @@ userroute.post('/login', async (req, res) => {
     }
 })
 
-userroute.post('/', async (req, res) => {
+userroute.post('/reg', async (req, res) => {
     try {
         const find = await user.findOne({email: req.body.email});
         if(find) {
@@ -61,9 +61,10 @@ userroute.post('/', async (req, res) => {
     }
 })
 
-userroute.get('/', (req, res) => {
+userroute.get('/', async(req, res) => {
     try {
-        res.send("dhfd")
+        const email = await user.find()
+        res.send(email)
     } catch (error) {
         return res.status(500).send({
             status: "Error",

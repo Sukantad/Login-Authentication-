@@ -4,10 +4,10 @@ const mongoose = require('mongoose')
 dotenv.config();
 const url=process.env.DATABASE_URL
 
-const connect = async () => {
+const Connection = async () => {
     await mongoose.connect(url);
     console.log("Db connected")
 }
 
 
-module.exports = connect;
+module.exports = Connection;

@@ -1,5 +1,5 @@
 const express = require('express');
-const Connection = require('./connection/connection.js');
+const ConnectionFn = require('./Connection/Connection.js');
 const blogrouter = require('./Controllers/blogController');
 const { userroute } = require('./Controllers/userController');
 
@@ -38,7 +38,7 @@ app.get('*', (req, res)=>{
 
 app.listen(PORT, () => {
     try {
-        Connection();
+        ConnectionFn();
     console.log("listening PORT");
     } catch (error) {
         console.log("error");

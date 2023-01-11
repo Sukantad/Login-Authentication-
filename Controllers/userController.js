@@ -63,8 +63,9 @@ userroute.post('/reg', async (req, res) => {
 
 userroute.get('/', async(req, res) => {
     try {
-        const email = await user.find()
-        res.send(email)
+       const find = await user.findOne({username: req.query.q});
+        res.send(find)
+        console.log(req.query.q,"djkdj")
     } catch (error) {
         return res.status(500).send({
             status: "Error",

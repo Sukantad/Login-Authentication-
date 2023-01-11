@@ -10,7 +10,7 @@ const userroute = express.Router();
 
 userroute.post('/login', async (req, res) => {
     try {
-        const email = await user.findOne({email: req.body.email});
+        const email = await user.findOne({username: req.body.username});
         if(!email) {
             return res.status(400).send({
                 status: "error",

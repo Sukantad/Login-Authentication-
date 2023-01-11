@@ -2,8 +2,10 @@ const express = require('express');
 const ConnectionFn = require('./config/db');
 const blogrouter = require('./Controllers/blogController');
 const { userroute } = require('./Controllers/userController');
-
+const cors= require('cors');
 const app = express();
+
+
 const obj=[ 
     {"Name":"Sukanta Ghosh",
     "Age": 22,
@@ -20,6 +22,7 @@ const obj=[
     
 ]
 app.use(express.json());
+app.use(cors());
 const PORT = process.env.PORT || 3050
 
 app.use("/user",userroute);

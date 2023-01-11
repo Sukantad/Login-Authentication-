@@ -15,6 +15,16 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    username: {
+      type: String,
+      required: true,
+    },
+    mobile: {
+      type: Number,
+    },
+    description: {
+      type: String,
+    },
   },
   {
     versionKey: false,
@@ -28,6 +38,6 @@ UserSchema.pre("save", function (next) {
   return next();
 });
 
-const user = mongoose.model("userdetails", UserSchema);
+const user = mongoose.model("userDetail", UserSchema);
 
 module.exports = user;
